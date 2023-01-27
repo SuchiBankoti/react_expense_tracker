@@ -5,11 +5,18 @@ export default function Expenseitem(props) {
   const expenseDate = new Date();
   const expensetitle = "car insurance";
   const expenseAmount = 294;
+  function Expensedetails() {
+    return (
+      <>
+        <div>{expensetitle}</div>
+        <div>${expenseAmount}</div>
+      </>
+    );
+  }
   return (
     <div className="expenseitem">
       <div>{expenseDate.toISOString()}</div>
-      <div>{expensetitle}</div>
-      <div>${expenseAmount}</div>
+      <Expensedetails />
       <div>{locationOfExpenditure}</div>
     </div>
   );
