@@ -7,6 +7,11 @@ const Expenses = (props) => {
   function deleteItem(title) {
     setItem((prev) => prev.filter((e) => e.title !== title));
   }
+  function updateAmount(title) {
+    setItem((prev) =>
+      prev.map((e) => (e.title === title ? { ...e, amount: 100 } : e))
+    );
+  }
   const items = item.map((e) => (
     <ExpenseItem
       key={nanoid()}
@@ -14,6 +19,7 @@ const Expenses = (props) => {
       amount={e.amount}
       date={e.date}
       deleteItem={deleteItem}
+      updateAmount={updateAmount}
     />
   ));
   return <div className="expenses">{items}</div>;

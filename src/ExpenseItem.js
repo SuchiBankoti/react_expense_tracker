@@ -11,6 +11,9 @@ const ExpenseItem = (props) => {
         <div className="expense-item__price">${props.amount}</div>
       </div>
       <button onClick={() => props.deleteItem(props.title)}>Delete Item</button>
+      <button onClick={() => props.updateAmount(props.title)}>
+        Update amount
+      </button>
     </div>
   );
 };
