@@ -1,6 +1,7 @@
 import React from "react";
 
 import Expenses from "./Expenses";
+import ExpenseForm from "./ExpenseForm";
 
 export default function App() {
   const expenses = [
@@ -28,6 +29,7 @@ export default function App() {
   return (
     <div>
       <h2>Let's get started!</h2>
+      <ExpenseForm />
       <Expenses items={expenses} />
     </div>
   );
