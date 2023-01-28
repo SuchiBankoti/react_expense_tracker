@@ -1,25 +1,24 @@
-import React, { useState } from "react";
 import { nanoid } from "nanoid";
 import ExpenseForm from "./ExpenseForm";
 import ExpenseItem from "./ExpenseItem";
 
 export default function Expenses(props) {
-  const [item, setItem] = useState(props.items);
+  const { items, addItems } = props;
   function deleteItem(title) {
-    setItem((prev) => prev.filter((e) => e.title !== title));
+    addItems((prev) => prev.filter((e) => e.title !== title));
   }
   function updateAmount(title) {
-    setItem((prev) =>
+    addItems((prev) =>
       prev.map((e) => (e.title === title ? { ...e, amount: 100 } : e))
     );
   }
-  function addNewItem(Item) {
-    setItem((prev) => {
-      prev.push(Item);
-      return prev;
+  function addNewItem(newItem) {
+    addItems((prev) => {
+      return [...prev, { ...newItem, id: nanoid() }];
     });
   }
-  const items = item.map((e) => (
+
+  const displayitems = items.map((e) => (
     <ExpenseItem
       key={nanoid()}
       title={e.title}
@@ -32,7 +31,7 @@ export default function Expenses(props) {
   return (
     <div>
       <ExpenseForm AddItem={addNewItem} />
-      <div className="expenses">{items}</div>;
+      <div className="expenses">{displayitems}</div>
     </div>
   );
 }

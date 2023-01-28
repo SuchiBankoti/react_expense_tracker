@@ -1,9 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import { nanoid } from "nanoid";
 import Expenses from "./Expenses";
 
 export default function App() {
-  const expenses = [
+  const [expenses, setExpenses] = useState([
     {
       id: nanoid(),
       title: "Toilet Paper",
@@ -28,12 +28,12 @@ export default function App() {
       amount: 450,
       date: "2021 - 05 - 12",
     },
-  ];
+  ]);
 
   return (
     <div>
       <h2>Let's get started!</h2>
-      <Expenses items={expenses} />
+      <Expenses items={expenses} addItems={setExpenses} />
     </div>
   );
 }
