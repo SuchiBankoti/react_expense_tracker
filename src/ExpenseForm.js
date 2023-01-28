@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-export default function ExpenseForm() {
+export default function ExpenseForm(props) {
   const [formdata, setFormdata] = useState({
     date: "",
     title: "",
@@ -16,7 +16,7 @@ export default function ExpenseForm() {
       <form>
         <label>
           <input
-            type="text"
+            type="date"
             name="date"
             onChange={handleChange}
             value={formdata.date}
@@ -40,7 +40,7 @@ export default function ExpenseForm() {
         </label>
       </form>
       <br />
-      <button onClick={() => console.log(formdata)}>Submit</button>
+      <button onClick={() => props.AddItem(formdata)}>Submit</button>
     </div>
   );
 }

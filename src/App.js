@@ -1,35 +1,38 @@
 import React from "react";
-
+import { nanoid } from "nanoid";
 import Expenses from "./Expenses";
-import ExpenseForm from "./ExpenseForm";
 
 export default function App() {
   const expenses = [
     {
-      id: "e1",
+      id: nanoid(),
       title: "Toilet Paper",
       amount: 94.12,
-      date: new Date(2020, 7, 14),
+      date: "2020 - 07 - 14",
     },
-    { id: "e2", title: "New TV", amount: 799.49, date: new Date(2021, 2, 12) },
     {
-      id: "e3",
+      id: nanoid(),
+      title: "New TV",
+      amount: 799.49,
+      date: "2021 - 02 - 12",
+    },
+    {
+      id: nanoid(),
       title: "Car Insurance",
       amount: 294.67,
-      date: new Date(2021, 2, 28),
+      date: "2021 - 02 - 28",
     },
     {
-      id: "e4",
+      id: nanoid(),
       title: "New Desk (Wooden)",
       amount: 450,
-      date: new Date(2021, 5, 12),
+      date: "2021 - 05 - 12",
     },
   ];
 
   return (
     <div>
       <h2>Let's get started!</h2>
-      <ExpenseForm />
       <Expenses items={expenses} />
     </div>
   );
