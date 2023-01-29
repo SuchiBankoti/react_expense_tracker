@@ -60,7 +60,23 @@ export default function Expenses(props) {
             ></input>
           </label>
         </form>
-        <div>{searchItems.length > 0 ? searchResults : displayitems}</div>
+        <div>
+          {displayitems.length === 0 ? (
+            <div style={{ color: "white" }}>No expense to show</div>
+          ) : searchItems.length > 0 ? (
+            searchResults
+          ) : (
+            displayitems
+          )}
+        </div>
+        {displayitems.length === 1 ? (
+          <div style={{ color: "white" }}>
+            {" "}
+            Only single Expense here.Please add more expenses
+          </div>
+        ) : (
+          ""
+        )}
       </div>
     </div>
   );
