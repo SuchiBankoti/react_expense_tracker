@@ -1,17 +1,16 @@
 import React from "react";
-
-const ExpenseDate = (props) => {
-  const month = props.date.toLocaleString("en-US", { month: "long" });
-  const day = props.date.toLocaleString("en-US", { day: "2-digit" });
-  const year = props.date.getFullYear();
+import "./ExpenseDate.css";
+export default function ExpenseDate(props) {
+  const { date } = props;
+  const [year, month, day] = date.split("-");
 
   return (
     <div className="expense-date">
-      <div className="expense-date__month">{month}</div>
+      <div className="expense-date__month">
+        {Intl.DateTimeFormat("en", { month: "long" }).format(new Date(month))}
+      </div>
       <div className="expense-date__year">{year}</div>
       <div className="expense-date__day">{day}</div>
     </div>
   );
-};
-
-export default ExpenseDate;
+}

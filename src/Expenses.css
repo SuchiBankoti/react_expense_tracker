@@ -1,0 +1,12 @@
+* {
+  box-sizing: border-box;
+}
+.front-page {
+  background-color: rgb(67, 66, 66);
+  padding: 20px;
+}
+.expenses {
+  background-color: black;
+  padding: 20px;
+  border-radius: 10px;
+}

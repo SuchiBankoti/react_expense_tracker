@@ -1,0 +1,31 @@
+* {
+  box-sizing: border-box;
+}
+.expense-item {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: rgb(74, 73, 73);
+  padding: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+}
+.expense-item__title {
+  font-family: sans-serif;
+}
+.expense-item__price {
+  border: 1px solid white;
+  border-radius: 10px;
+  background-color: rgb(87, 14, 155);
+  padding: 5px;
+  color: white;
+  width: 100px;
+}
+.delete-item {
+  color: rgb(226, 223, 223);
+  font-size: large;
+  border: 1px solid rgb(226, 223, 223);
+  background-color: black;
+  border-radius: 50%;
+}

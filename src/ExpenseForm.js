@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "./ExpenseForm.css";
 
 export default function ExpenseForm(props) {
   const [formdata, setFormdata] = useState({
@@ -12,10 +13,12 @@ export default function ExpenseForm(props) {
     });
   }
   return (
-    <div>
-      <form>
+    <div className="form-container">
+      <form className="form">
         <label>
+          Date
           <input
+            className="input"
             type="date"
             name="date"
             onChange={handleChange}
@@ -23,7 +26,9 @@ export default function ExpenseForm(props) {
           />
         </label>
         <label>
+          Title
           <input
+            className="input"
             type="text"
             name="title"
             onChange={handleChange}
@@ -31,7 +36,9 @@ export default function ExpenseForm(props) {
           />
         </label>
         <label>
+          Amount
           <input
+            className="input"
             type="number"
             name="amount"
             onChange={handleChange}
@@ -39,8 +46,9 @@ export default function ExpenseForm(props) {
           />
         </label>
       </form>
-      <br />
-      <button onClick={() => props.AddItem(formdata)}>Submit</button>
+      <button onClick={() => props.AddItem(formdata)} className="submit-btn">
+        Add Expense
+      </button>
     </div>
   );
 }

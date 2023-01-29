@@ -1,22 +1,41 @@
 import { nanoid } from "nanoid";
+import { useEffect, useState } from "react";
 import ExpenseForm from "./ExpenseForm";
 import ExpenseItem from "./ExpenseItem";
+import "./Expenses.css";
 
 export default function Expenses(props) {
   const { items, addItems } = props;
+  const [searchDate, setsearchDate] = useState([]);
+  const [searchItems, setSearchItems] = useState([]);
+
   function deleteItem(title) {
     addItems((prev) => prev.filter((e) => e.title !== title));
   }
-  function updateAmount(title) {
-    addItems((prev) =>
-      prev.map((e) => (e.title === title ? { ...e, amount: 100 } : e))
-    );
-  }
+
   function addNewItem(newItem) {
     addItems((prev) => {
       return [...prev, { ...newItem, id: nanoid() }];
     });
   }
+  useEffect(() => {
+    function filter() {
+      setSearchItems(
+        items.filter((element) => element.date.split("-")[0] === searchDate[0])
+      );
+    }
+    filter();
+  }, [searchDate]);
+
+  const searchResults = searchItems.map((e) => (
+    <ExpenseItem
+      key={nanoid()}
+      title={e.title}
+      amount={e.amount}
+      date={e.date}
+      deleteItem={deleteItem}
+    />
+  ));
 
   const displayitems = items.map((e) => (
     <ExpenseItem
@@ -25,13 +44,24 @@ export default function Expenses(props) {
       amount={e.amount}
       date={e.date}
       deleteItem={deleteItem}
-      updateAmount={updateAmount}
     />
   ));
   return (
-    <div>
+    <div className="front-page">
       <ExpenseForm AddItem={addNewItem} />
-      <div className="expenses">{displayitems}</div>
+      <div className="expenses">
+        <form>
+          <label>
+            filter by year:
+            <input
+              type="text"
+              value={searchDate}
+              onChange={(e) => setsearchDate([e.target.value])}
+            ></input>
+          </label>
+        </form>
+        <div>{searchItems.length > 0 ? searchResults : displayitems}</div>
+      </div>
     </div>
   );
 }

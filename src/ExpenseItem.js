@@ -1,18 +1,18 @@
 import React from "react";
-
-// import ExpenseDate from "./ExpenseDate";
+import "./ExpenseItem.css";
+import ExpenseDate from "./ExpenseDate";
 
 export default function ExpenseItem(props) {
   return (
     <div className="expense-item">
-      <div className="expense-item__description">
-        <h2>{props.title}</h2>
-        <div className="expense-item__price">${props.amount}</div>
-      </div>
-      <div>{props.date} </div>
-      <button onClick={() => props.deleteItem(props.title)}>Delete Item</button>
-      <button onClick={() => props.updateAmount(props.title)}>
-        Update amount
+      <ExpenseDate date={props.date} />
+      <h2 className="expense-item__title">{props.title}</h2>
+      <div className="expense-item__price">${props.amount}</div>
+      <button
+        onClick={() => props.deleteItem(props.title)}
+        className="delete-item"
+      >
+        X
       </button>
     </div>
   );

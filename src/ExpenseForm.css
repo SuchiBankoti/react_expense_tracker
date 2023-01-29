@@ -1,0 +1,45 @@
+* {
+  box-sizing: border-box;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+.input {
+  margin: 10px;
+  border: 1px solid black;
+  height: 45px;
+  width: 300px;
+  border-radius: 5px;
+  background-color: rgb(167, 164, 164);
+  font-size: large;
+}
+label {
+  font-size: medium;
+  font-weight: bold;
+  letter-spacing: 2px;
+  background-color: black;
+  padding: 2px;
+  margin: 5px;
+  color: white;
+  border-radius: 5px;
+}
+.form-container {
+  background-color: grey;
+  height: 20vh;
+  margin: 10px;
+  padding-bottom: 20px;
+  border-radius: 10px;
+}
+.submit-btn {
+  background-color: rgb(77, 5, 77);
+  color: white;
+  width: 100px;
+  height: 35px;
+  padding: 2px;
+  margin-left: 50%;
+  margin-top: 20px;
+}
