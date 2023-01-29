@@ -6,6 +6,7 @@ import "./Expenses.css";
 
 export default function Expenses(props) {
   const { items, addItems } = props;
+  const [displayForm, setDisplayForm] = useState(false);
   const [searchDate, setsearchDate] = useState([]);
   const [searchItems, setSearchItems] = useState([]);
 
@@ -48,7 +49,11 @@ export default function Expenses(props) {
   ));
   return (
     <div className="front-page">
-      <ExpenseForm AddItem={addNewItem} />
+      <ExpenseForm
+        AddItem={addNewItem}
+        setDisplayForm={setDisplayForm}
+        displayForm={displayForm}
+      />
       <div className="expenses">
         <form>
           <label>

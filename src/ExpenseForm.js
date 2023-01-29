@@ -12,43 +12,65 @@ export default function ExpenseForm(props) {
       return { ...prev, [e.target.name]: e.target.value };
     });
   }
+  function formAction() {
+    if (formdata.date) {
+      props.AddItem(formdata);
+    }
+    props.setDisplayForm((prev) => !prev);
+  }
   return (
     <div className="form-container">
-      <form className="form">
-        <label>
-          Date
-          <input
-            className="input"
-            type="date"
-            name="date"
-            onChange={handleChange}
-            value={formdata.date}
-          />
-        </label>
-        <label>
-          Title
-          <input
-            className="input"
-            type="text"
-            name="title"
-            onChange={handleChange}
-            value={formdata.title}
-          />
-        </label>
-        <label>
-          Amount
-          <input
-            className="input"
-            type="number"
-            name="amount"
-            onChange={handleChange}
-            value={formdata.amount}
-          />
-        </label>
-      </form>
-      <button onClick={() => props.AddItem(formdata)} className="submit-btn">
-        Add Expense
-      </button>
+      {props.displayForm ? (
+        <form className="form">
+          <label>
+            Date
+            <input
+              className="input"
+              type="date"
+              name="date"
+              onChange={handleChange}
+              value={formdata.date}
+            />
+          </label>
+          <label>
+            Title
+            <input
+              className="input"
+              type="text"
+              name="title"
+              onChange={handleChange}
+              value={formdata.title}
+            />
+          </label>
+          <label>
+            Amount
+            <input
+              className="input"
+              type="number"
+              name="amount"
+              onChange={handleChange}
+              value={formdata.amount}
+            />
+          </label>
+        </form>
+      ) : (
+        ""
+      )}
+      <div className="form-btn-container">
+        {props.displayForm ? (
+          <button
+            className="form-btn"
+            onClick={() => props.setDisplayForm((prev) => !prev)}
+          >
+            Cancel
+          </button>
+        ) : (
+          ""
+        )}
+        <button onClick={formAction} className="form-btn">
+          Add Expense
+        </button>
+      </div>
     </div>
   );
 }
