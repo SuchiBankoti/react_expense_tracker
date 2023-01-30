@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { nanoid } from "nanoid";
-import Expenses from "./Expenses";
+import Expenses from "./Expenses/Expenses";
 
 export default function App() {
   const [expenses, setExpenses] = useState([

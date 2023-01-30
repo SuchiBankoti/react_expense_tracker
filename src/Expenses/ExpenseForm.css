@@ -5,8 +5,6 @@
 .form {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
 }
 .input {
   margin: 10px;
@@ -23,7 +21,7 @@ label {
   letter-spacing: 2px;
   background-color: black;
   padding: 2px;
-  margin: 5px;
+  margin: 10px;
   color: white;
   border-radius: 5px;
 }

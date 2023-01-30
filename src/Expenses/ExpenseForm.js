@@ -56,17 +56,16 @@ export default function ExpenseForm(props) {
       ) : (
         ""
       )}
+
       <div className="form-btn-container">
-        {props.displayForm ? (
-          <button
-            className="form-btn"
-            onClick={() => props.setDisplayForm((prev) => !prev)}
-          >
-            Cancel
-          </button>
-        ) : (
-          ""
-        )}
+        <button
+          className="form-btn"
+          style={{ display: props.displayForm ? "block" : "none" }}
+          onClick={() => props.setDisplayForm((prev) => !prev)}
+        >
+          Cancel
+        </button>
+
         <button onClick={formAction} className="form-btn">
           Add Expense
         </button>
